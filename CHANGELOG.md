@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.1 — 2026-08-22
+- home2 hero's composed visual (green panel, logo, 3 cards) now shows on mobile too: uniformly scaled down via CSS transform (same ratios/alignment, untouched internally) and pinned into the hero's top-right free space. Full size from lg up, unchanged.
+
 ## 0.7.0 — 2026-08-22
 - Fixed home2 mobile layout: smaller hero heading/copy/buttons, tighter section padding and gaps across hero, perks, categories, featured products, and CTA on small screens (desktop layout unchanged).
 

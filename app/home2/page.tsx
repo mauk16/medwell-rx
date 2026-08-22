@@ -26,8 +26,8 @@ export default function Home2() {
     <div>
       {/* Hero — asymmetric two-column, one composed visual instead of scattered icons */}
       <section className="border-b border-border bg-accent/40">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-8 sm:gap-12 sm:py-10 lg:grid-cols-2 lg:py-14">
-          <div>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 py-8 sm:gap-12 sm:py-10 lg:grid-cols-2 lg:py-14">
+          <div className="pr-32 sm:pr-40 lg:pr-0">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-primary">
               <Sparkles size={14} /> New look, same trusted care
             </span>
@@ -56,40 +56,44 @@ export default function Home2() {
             </div>
           </div>
 
-          {/* Single composed visual: one focal card, one small accent card offset behind it */}
-          <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block">
-            <div
-              className="absolute inset-8 rounded-[2.5rem]"
-              style={{
-                background:
-                  "radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%), radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%), var(--accent)",
-              }}
-            />
-            <div className="absolute inset-8 flex flex-col items-center justify-center gap-2 rounded-[2.5rem]">
-              <span className="grid h-16 w-16 place-items-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
-                <Cross size={30} />
-              </span>
-              <p className="text-lg font-bold tracking-tight text-primary">MedWell</p>
-            </div>
-            <div className="absolute bottom-16 right-10">
-              <div className="animate-float" style={{ animationDelay: "0.6s" }}>
-                <div className="rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
-                  <p className="text-xl font-bold text-primary">20+</p>
-                  <p className="text-xs text-muted">years of care</p>
+          {/* Single composed visual, unchanged internally. On mobile it's uniformly scaled down
+              (transform, not resized elements) and pinned into the hero's free top-right corner;
+              at lg it returns to its normal full-size spot in the grid. */}
+          <div className="absolute right-4 top-16 h-28 w-28 overflow-hidden sm:top-20 sm:h-36 sm:w-36 lg:static lg:top-auto lg:mx-auto lg:h-auto lg:w-full lg:max-w-sm lg:overflow-visible">
+            <div className="relative aspect-square w-96 origin-top-left scale-[0.2917] sm:scale-[0.375] lg:w-full lg:scale-100 lg:origin-center">
+              <div
+                className="absolute inset-8 rounded-[2.5rem]"
+                style={{
+                  background:
+                    "radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%), radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%), var(--accent)",
+                }}
+              />
+              <div className="absolute inset-8 flex flex-col items-center justify-center gap-2 rounded-[2.5rem]">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
+                  <Cross size={30} />
+                </span>
+                <p className="text-lg font-bold tracking-tight text-primary">MedWell</p>
+              </div>
+              <div className="absolute bottom-16 right-10">
+                <div className="animate-float" style={{ animationDelay: "0.6s" }}>
+                  <div className="rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
+                    <p className="text-xl font-bold text-primary">20+</p>
+                    <p className="text-xs text-muted">years of care</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute right-0 top-6 w-40">
-              <div className="animate-float">
-                <div className="rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
-                  <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
+              <div className="absolute right-0 top-6 w-40">
+                <div className="animate-float">
+                  <div className="rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
+                    <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute bottom-6 left-0 w-32">
-              <div className="animate-float" style={{ animationDelay: "1.2s" }}>
-                <div className="-rotate-6 rounded-3xl border border-border bg-background p-5 shadow-xl">
-                  <Image src="/images/med-2.webp" alt="Capsules" width={128} height={128} className="w-full" />
+              <div className="absolute bottom-6 left-0 w-32">
+                <div className="animate-float" style={{ animationDelay: "1.2s" }}>
+                  <div className="-rotate-6 rounded-3xl border border-border bg-background p-5 shadow-xl">
+                    <Image src="/images/med-2.webp" alt="Capsules" width={128} height={128} className="w-full" />
+                  </div>
                 </div>
               </div>
             </div>
