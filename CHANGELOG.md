@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.2 — 2026-08-22
+- Added brand favicon (`app/icon.svg`, green circle + cross), replacing the default Next.js favicon.ico.
+
 ## 0.6.1 — 2026-08-22
 - Merged Fluxframers credit + version into the existing bottom copyright row instead of a separate bar.
 
