@@ -59,14 +59,10 @@ export default function Home2() {
           {/* Single composed visual: one focal card, one small accent card offset behind it */}
           <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block">
             <div
-              className="absolute inset-8 rounded-[2.5rem] bg-primary/10"
+              className="absolute inset-8 rounded-[2.5rem]"
               style={{
-                backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
-                backgroundSize: "18px 18px",
-                color: "var(--primary)",
-                opacity: 1,
-                maskImage: "radial-gradient(ellipse at center, black 55%, transparent 90%)",
-                WebkitMaskImage: "radial-gradient(ellipse at center, black 55%, transparent 90%)",
+                background:
+                  "radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%), radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%), var(--accent)",
               }}
             />
             <div className="absolute bottom-16 right-10 rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">

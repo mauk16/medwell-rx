@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.2 — 2026-08-22
+- Replaced hero panel's dot-grid texture with a soft two-tone radial gradient blob.
+
 ## 0.4.1 — 2026-08-22
 - Filled empty space in home2 hero's background panel with a fading dot-grid texture and a "20+ years of care" stat badge.
 
