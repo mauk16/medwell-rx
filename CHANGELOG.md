@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.2 — 2026-08-22
+- Fixed mobile menu popup width: was spanning the full viewport, now a compact 256px card anchored under the trigger.
+- Fixed the backdrop only dimming/blurring below the header instead of the whole page, and background elements (like the header logo) remaining clickable through it: the header's `backdrop-blur` was creating a CSS containing block that trapped the `fixed` backdrop/panel to the header's own box. Portalled both to `document.body` to escape it — backdrop now covers the full viewport, intercepts every tap (closing the menu instead of also activating whatever's underneath), and background scroll stays locked while open.
+
 ## 0.10.0 — 2026-08-22
 - Fixed hero on mobile: headline no longer collides with the scaled-down corner visual (`min-w-0` + reserved space only on the `<h1>`, not the whole column), search bar and trust chips now span full width.
 - Added `MobileNav`: a popup dropdown card (not a full-screen takeover) with a dimmed/blurred backdrop, tap-outside-to-close, background scroll lock, and its own close button — trigger stays a static hamburger. Desktop nav unchanged.

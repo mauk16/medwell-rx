@@ -1,4 +1,4 @@
-# STATE — v0.10.0
+# STATE — v0.10.2
 
 Demo pharmacy storefront. Static/dummy data only, no backend, no real transactions.
 
