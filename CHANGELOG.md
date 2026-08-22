@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.0 — 2026-08-22
+- Added `TemplateBadge`: the "Initial Design Template" / "Get This Theme" pill pair (fixed top-center, WhatsApp CTA), same pattern as fluxframers-templates' Ivory Dental demo, recolored to this project's green tokens. Positioned to straddle the header/page boundary.
+- Fixed a real hydration mismatch in `MobileNav`: portal mounting was gated on `typeof document !== "undefined"`, which is `false` during SSR but `true` on the client's hydration pass — replaced with a post-mount state flag so the first client render matches the server. Synced the fix to the `common-utilities/navigation` copy.
+- Tuned `TemplateBadge`'s vertical position (mobile only) to sit correctly relative to the header.
+
 ## 0.11.0 — 2026-08-22
 - Extracted `MobileNav`, `PageHero`, and a generalized `ProductCard` into `common-utilities/navigation` and `common-utilities/ecommerce` for reuse in future projects (props-driven, no hardcoded pharmacy content); `MobileNav` now takes `links`/`ctaHref`/`ctaLabel`/`phone` props instead of hardcoded copy.
 - Reduced desktop hero's vertical padding (`lg:py-24` → `lg:py-14`) to remove excess space above the fold.

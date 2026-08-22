@@ -42,6 +42,33 @@ body {
     linear-gradient(160deg, var(--primary-dark), color-mix(in srgb, var(--primary-dark) 70%, black));
 }
 
+/* Sweeping highlight for the "Initial Design Template" / "Get this theme"
+   pill pair — same technique as fluxframers-templates, tuned to our tokens. */
+.badge-shine {
+  position: relative;
+  overflow: hidden;
+}
+.badge-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    color-mix(in srgb, var(--primary) 35%, transparent) 46%,
+    color-mix(in srgb, white 60%, transparent) 50%,
+    color-mix(in srgb, var(--primary) 35%, transparent) 54%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  animation: badge-shine-sweep 4.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes badge-shine-sweep {
+  0% { background-position: 130% 0%; }
+  100% { background-position: -30% 0%; }
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

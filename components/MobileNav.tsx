@@ -25,6 +25,15 @@ export default function MobileNav({
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // The portal target (document.body) only exists on the client. Rendering it
+  // straight from `typeof document !== "undefined"` mismatches SSR (false) vs.
+  // the client's hydration pass (true) — mount-flag it instead so the first
+  // client render matches the server, and the portal appears one tick later.
+  const [mounted, setMounted] = useState(false);
+  // No render-time alternative: document.body genuinely isn't there until the client mounts.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+
   // Close on navigation — the header persists across soft navigations. Adjusting
   // state during render (not in an effect) avoids an extra cascading render.
   const [lastPathname, setLastPathname] = useState(pathname);
@@ -60,7 +69,7 @@ export default function MobileNav({
           Symptom if you skip this: only the header area dims/blurs, not the whole
           page, and elements under the header (e.g. the logo) stay clickable
           through the "backdrop". */}
-      {typeof document !== "undefined" &&
+      {mounted &&
         createPortal(
           <>
             {/* Backdrop — dims and blurs the whole page behind the popup; tap it to close */}
