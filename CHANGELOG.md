@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.1 — 2026-08-22
+- Merged Fluxframers credit + version into the existing bottom copyright row instead of a separate bar.
+
 ## 0.6.0 — 2026-08-22
 - Added Fluxframers credit bar to footer bottom (logo + link + live version number from package.json), matching the Artisan Emporium pattern.
 
