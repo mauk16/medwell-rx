@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.0 — 2026-08-22
+- Redesigned Footer: 4-column layout (brand/socials, quick links, categories, contact info) + bottom bar. Social icons are inline SVG (lucide-react v1 dropped brand icons).
+
 ## 0.2.0 — 2026-08-22
 - Added `/home2`: sleek redesigned homepage with gradient hero, floating medicine icon illustrations (from `media/web-components`, optimized to WebP), bento-style perk cards, hover-lift product cards, star-rating CTA banner.
 
