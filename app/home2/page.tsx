@@ -71,15 +71,27 @@ export default function Home2() {
               </span>
               <p className="text-lg font-bold tracking-tight text-primary">MedWell</p>
             </div>
-            <div className="absolute bottom-16 right-10 rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
-              <p className="text-xl font-bold text-primary">20+</p>
-              <p className="text-xs text-muted">years of care</p>
+            <div className="absolute bottom-16 right-10">
+              <div className="animate-float" style={{ animationDelay: "0.6s" }}>
+                <div className="rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
+                  <p className="text-xl font-bold text-primary">20+</p>
+                  <p className="text-xs text-muted">years of care</p>
+                </div>
+              </div>
             </div>
-            <div className="absolute right-0 top-6 w-40 rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
-              <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
+            <div className="absolute right-0 top-6 w-40">
+              <div className="animate-float">
+                <div className="rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
+                  <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
+                </div>
+              </div>
             </div>
-            <div className="absolute bottom-6 left-0 w-32 -rotate-6 rounded-3xl border border-border bg-background p-5 shadow-xl">
-              <Image src="/images/med-2.webp" alt="Capsules" width={128} height={128} className="w-full" />
+            <div className="absolute bottom-6 left-0 w-32">
+              <div className="animate-float" style={{ animationDelay: "1.2s" }}>
+                <div className="-rotate-6 rounded-3xl border border-border bg-background p-5 shadow-xl">
+                  <Image src="/images/med-2.webp" alt="Capsules" width={128} height={128} className="w-full" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

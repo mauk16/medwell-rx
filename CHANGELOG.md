@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.1 — 2026-08-22
+- Added a subtle floating animation (staggered, reduced-motion-safe) to the three white cards in the home2 hero; the gradient panel and logo mark stay fixed.
+
 ## 0.5.0 — 2026-08-22
 - Added centered brand logo mark (badge + wordmark) inside the home2 hero's gradient panel.
 
