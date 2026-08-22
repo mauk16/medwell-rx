@@ -58,7 +58,21 @@ export default function Home2() {
 
           {/* Single composed visual: one focal card, one small accent card offset behind it */}
           <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block">
-            <div className="absolute inset-8 rounded-[2.5rem] bg-primary/10" />
+            <div
+              className="absolute inset-8 rounded-[2.5rem] bg-primary/10"
+              style={{
+                backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
+                backgroundSize: "18px 18px",
+                color: "var(--primary)",
+                opacity: 1,
+                maskImage: "radial-gradient(ellipse at center, black 55%, transparent 90%)",
+                WebkitMaskImage: "radial-gradient(ellipse at center, black 55%, transparent 90%)",
+              }}
+            />
+            <div className="absolute bottom-16 right-10 rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
+              <p className="text-xl font-bold text-primary">20+</p>
+              <p className="text-xs text-muted">years of care</p>
+            </div>
             <div className="absolute right-0 top-6 w-40 rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
               <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
             </div>

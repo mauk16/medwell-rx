@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.1 — 2026-08-22
+- Filled empty space in home2 hero's background panel with a fading dot-grid texture and a "20+ years of care" stat badge.
+
 ## 0.4.0 — 2026-08-22
 - Redesigned Footer: 4-column layout (brand/socials, quick links, categories, contact info) + bottom bar. Social icons are inline SVG (lucide-react v1 dropped brand icons).
 
