@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0 — 2026-08-22
+- Added centered brand logo mark (badge + wordmark) inside the home2 hero's gradient panel.
+
 ## 0.4.2 — 2026-08-22
 - Replaced hero panel's dot-grid texture with a soft two-tone radial gradient blob.
 

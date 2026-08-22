@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Truck, Clock, Sparkles, Star } from "lucide-react";
+import { ShieldCheck, Truck, Clock, Sparkles, Star, Cross } from "lucide-react";
 import { categories, products } from "@/data/products";
 
 const perks = [
@@ -65,6 +65,12 @@ export default function Home2() {
                   "radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%), radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%), var(--accent)",
               }}
             />
+            <div className="absolute inset-8 flex flex-col items-center justify-center gap-2 rounded-[2.5rem]">
+              <span className="grid h-16 w-16 place-items-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
+                <Cross size={30} />
+              </span>
+              <p className="text-lg font-bold tracking-tight text-primary">MedWell</p>
+            </div>
             <div className="absolute bottom-16 right-10 rounded-2xl border border-border bg-background px-5 py-3 text-center shadow-xl">
               <p className="text-xl font-bold text-primary">20+</p>
               <p className="text-xs text-muted">years of care</p>
