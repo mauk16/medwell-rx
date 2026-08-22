@@ -8,6 +8,16 @@ export type Product = {
   description: string;
 };
 
+// One illustration per category, used for card watermarks and category tiles.
+export const categoryArt: Record<string, string> = {
+  "Pain Relief": "/images/med-1.webp",
+  "Cold & Flu": "/images/med-4.webp",
+  Vitamins: "/images/med-2.webp",
+  "Skin Care": "/images/med-6.webp",
+  "Baby & Child": "/images/med-5.webp",
+  Prescription: "/images/med-7.webp",
+};
+
 export const categories = [
   "Pain Relief",
   "Cold & Flu",

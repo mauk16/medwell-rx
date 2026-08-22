@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.10.0 — 2026-08-22
+- Fixed hero on mobile: headline no longer collides with the scaled-down corner visual (`min-w-0` + reserved space only on the `<h1>`, not the whole column), search bar and trust chips now span full width.
+- Added `MobileNav`: a popup dropdown card (not a full-screen takeover) with a dimmed/blurred backdrop, tap-outside-to-close, background scroll lock, and its own close button — trigger stays a static hamburger. Desktop nav unchanged.
+- Redesigned `Header` and `Footer` to match the homepage's dark hero language (footer now uses `.hero-gradient`), with a 2-up link grid on mobile and the existing Fluxframers/version credit line.
+
+## 0.9.1 — 2026-08-22
+- Embedded the MedWell logo mark + wordmark into the hero's translucent background tile, behind the floating cards.
+
+## 0.9.0 — 2026-08-22
+- Promoted the home3 design to `/` as the only homepage; deleted the original `/` and `/home2` designs.
+- Rolled the same design language across every remaining page (responsive for desktop and mobile):
+  - `/products` — dark hero with persistent search + category chips, result count, empty state, 3-col card grid.
+  - `/products/[slug]` — breadcrumb, illustrated product panel, assurances list, related-products swipe row, sticky mobile buy bar (disabled for Rx items).
+  - `/about` — hero, stat grid, story split, values grid, closing CTA.
+  - `/contact` — hero, contact detail cards + prescription note, expanded form (name/phone/email/topic/message).
+- Extracted shared pieces to kill duplication: `.hero-gradient` CSS class, `PageHero` and `ProductCard` components, and `categoryArt` moved into `data/products.ts`.
+
 ## 0.8.0 — 2026-08-22
 - Added `/home3`: conversion-focused homepage — dark gradient hero with a working product search, layered floating cards (desktop), swipeable scroll-snap rows for categories/products/reviews on mobile, asymmetric bento value-prop grid, 3-step explainer, reviews, and a sticky mobile action bar.
 - `/products` now accepts a `?q=` search param (matches name, category, blurb), so the home3 hero search is functional rather than decorative.

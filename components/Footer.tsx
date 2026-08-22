@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Cross, MapPin, Phone, Mail } from "lucide-react";
+import { Cross, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { categories } from "@/data/products";
 import pkg from "@/package.json";
 
@@ -30,31 +30,62 @@ const socials = [
   },
 ];
 
+const contact = [
+  { icon: MapPin, text: "123 Wellness Ave, Springfield" },
+  { icon: Phone, text: "(555) 012-3456" },
+  { icon: Mail, text: "hello@medwellpharmacy.demo" },
+];
+
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-accent/40">
-      <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="hero-gradient mt-4 rounded-t-[2rem] text-white sm:rounded-t-[3rem]">
+      <div className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-8 pt-12 sm:pt-16">
+        <Image
+          src="/images/med-6.webp"
+          alt=""
+          width={360}
+          height={360}
+          className="pointer-events-none absolute -right-14 -top-14 w-56 opacity-[0.06] sm:w-72"
+        />
+
+        {/* CTA strip */}
+        <div className="relative flex flex-col gap-4 rounded-2xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <Link href="/" className="flex items-center gap-2 text-lg font-bold text-primary">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-white">
-                <Cross size={18} />
+            <p className="font-bold tracking-tight">Need something today?</p>
+            <p className="mt-0.5 text-sm text-white/70">
+              Order by 4pm for free same-day delivery.
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary transition-transform hover:-translate-y-0.5"
+          >
+            Shop now <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        {/* Brand */}
+        <div className="relative mt-10 grid gap-8 lg:grid-cols-4 lg:gap-10">
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2 font-bold">
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15 ring-1 ring-white/20">
+                <Cross size={17} />
               </span>
               MedWell Pharmacy
             </Link>
-            <p className="mt-3 max-w-xs text-sm text-muted">
+            <p className="mt-3 max-w-xs text-sm text-white/60">
               Your neighborhood pharmacy for trusted over-the-counter care and prescription
               fulfillment, since 2005.
             </p>
-            <div className="mt-5 flex gap-3">
+            <div className="mt-5 flex gap-2.5">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted transition-colors hover:border-primary hover:text-primary"
+                  className="grid h-9 w-9 place-items-center rounded-full text-white/70 ring-1 ring-white/20 transition-colors hover:bg-white/10 hover:text-white"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                     <path d={s.path} />
                   </svg>
                 </a>
@@ -62,72 +93,76 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Quick Links</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-muted">
-              {quickLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="transition-colors hover:text-primary">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Link columns — side by side even on the smallest phones */}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:gap-10">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                Explore
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm text-white/75">
+                {quickLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="transition-colors hover:text-white">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                Categories
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm text-white/75">
+                {categories.slice(0, 5).map((c) => (
+                  <li key={c}>
+                    <Link
+                      href={`/products?category=${encodeURIComponent(c)}`}
+                      className="transition-colors hover:text-white"
+                    >
+                      {c}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Categories</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-muted">
-              {categories.slice(0, 5).map((c) => (
-                <li key={c}>
-                  <Link
-                    href={`/products?category=${encodeURIComponent(c)}`}
-                    className="transition-colors hover:text-primary"
-                  >
-                    {c}
-                  </Link>
+          <div className="lg:col-span-1">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white/50">
+              Visit us
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm text-white/75">
+              {contact.map((c) => (
+                <li key={c.text} className="flex items-start gap-2.5">
+                  <c.icon size={15} className="mt-0.5 shrink-0 text-white/50" />
+                  <span className="break-words">{c.text}</span>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Visit Us</h3>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-primary" />
-                123 Wellness Ave, Springfield
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={16} className="shrink-0 text-primary" />
-                (555) 012-3456
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail size={16} className="shrink-0 text-primary" />
-                hello@medwellpharmacy.demo
-              </li>
-              <li className="text-xs">Mon–Sat, 8am–9pm</li>
+              <li className="text-xs text-white/50">Mon–Sat, 8am–9pm · Closed Sunday</li>
             </ul>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-muted sm:flex-row">
+        {/* Bottom bar */}
+        <div className="relative mt-10 flex flex-col items-center gap-3 border-t border-white/15 pt-6 text-center text-xs text-white/50 lg:flex-row lg:justify-between lg:text-left">
           <p>© {new Date().getFullYear()} MedWell Pharmacy. All rights reserved.</p>
-          <p>Demo site — not a real pharmacy. No actual medications are sold here.</p>
-          <span className="flex items-center gap-3">
+          <p className="order-last lg:order-none">
+            Demo site — not a real pharmacy. No medications are sold here.
+          </p>
+          <span className="flex items-center gap-2.5">
             <a
               href="https://www.fluxframers.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 transition-colors hover:text-primary"
+              className="flex items-center gap-1.5 transition-colors hover:text-white"
             >
               Developed by
               <Image src="/fluxframers-logo.webp" alt="Fluxframers" width={16} height={11} />
               Fluxframers
             </a>
-            <span className="text-muted/50">&middot;</span>
+            <span className="text-white/25">&middot;</span>
             <span>v{pkg.version}</span>
           </span>
         </div>

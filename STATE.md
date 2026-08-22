@@ -1,4 +1,4 @@
-# STATE — v0.8.0
+# STATE — v0.10.0
 
 Demo pharmacy storefront. Static/dummy data only, no backend, no real transactions.
 
@@ -9,13 +9,20 @@ Demo pharmacy storefront. Static/dummy data only, no backend, no real transactio
 ## Stack
 Next.js (App Router, Turbopack) + Tailwind CSS v4 + Framer Motion + lucide-react. No database, no auth — all product data is a static array in `data/products.ts`.
 
+## Design language
+Dark emerald gradient hero on every page (`.hero-gradient` in `globals.css`), rounded-2xl/3xl
+bordered cards, scroll-snap swipe rows on mobile that become grids at `sm:`/`lg:`, and a sticky
+mobile action bar on the homepage and product detail. Shared via `components/PageHero.tsx` and
+`components/ProductCard.tsx`; per-category illustrations come from `categoryArt` in `data/products.ts`.
+
 ## Pages
-- `/` — original hero, perks, category links, featured products
-- `/home2` — redesigned homepage: gradient hero with floating medicine icons, bento perk cards, CTA banner
-- `/home3` — conversion-focused homepage: dark gradient hero + working search, mobile swipe rows, bento grid, steps, reviews, sticky mobile CTA bar
-- `/products` — full catalog, filterable by `?category=` and searchable by `?q=`
-- `/products/[slug]` — product detail (Rx items show "Requires Prescription", disabled button)
-- `/about`, `/contact` — static info + non-functional contact form
+- `/` — homepage: hero + working search, layered floating cards (desktop), category/product/review
+  swipe rows, bento value grid, 3-step explainer, sticky mobile CTA bar
+- `/products` — catalog, filterable by `?category=` and searchable by `?q=`, with empty state
+- `/products/[slug]` — illustrated panel, assurances, related row, sticky mobile buy bar
+  (disabled for Rx items)
+- `/about` — story, stat grid, values grid, CTA
+- `/contact` — contact detail cards + non-functional form
 
 ## Known non-functional (by design, it's a demo)
 - "Add to Cart", "Upload Rx", and the contact form don't submit anywhere

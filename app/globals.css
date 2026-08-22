@@ -28,6 +28,13 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Shared dark hero treatment — one source of truth for every page header. */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse at 85% 10%, color-mix(in srgb, var(--primary) 85%, white), transparent 55%),
+    linear-gradient(160deg, var(--primary-dark), color-mix(in srgb, var(--primary-dark) 70%, black));
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
