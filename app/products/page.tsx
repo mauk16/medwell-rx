@@ -4,10 +4,18 @@ import { categories, products } from "@/data/products";
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ category?: string; q?: string }>;
 }) {
-  const { category } = await searchParams;
-  const list = category ? products.filter((p) => p.category === category) : products;
+  const { category, q } = await searchParams;
+  const needle = q?.trim().toLowerCase();
+  const list = products.filter(
+    (p) =>
+      (!category || p.category === category) &&
+      (!needle ||
+        p.name.toLowerCase().includes(needle) ||
+        p.category.toLowerCase().includes(needle) ||
+        p.blurb.toLowerCase().includes(needle)),
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">

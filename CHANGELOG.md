@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0 — 2026-08-22
+- Added `/home3`: conversion-focused homepage — dark gradient hero with a working product search, layered floating cards (desktop), swipeable scroll-snap rows for categories/products/reviews on mobile, asymmetric bento value-prop grid, 3-step explainer, reviews, and a sticky mobile action bar.
+- `/products` now accepts a `?q=` search param (matches name, category, blurb), so the home3 hero search is functional rather than decorative.
+
 ## 0.7.1 — 2026-08-22
 - home2 hero's composed visual (green panel, logo, 3 cards) now shows on mobile too: uniformly scaled down via CSS transform (same ratios/alignment, untouched internally) and pinned into the hero's top-right free space. Full size from lg up, unchanged.
 
