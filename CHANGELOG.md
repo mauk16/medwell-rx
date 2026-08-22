@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0 — 2026-08-22
+- Extracted `MobileNav`, `PageHero`, and a generalized `ProductCard` into `common-utilities/navigation` and `common-utilities/ecommerce` for reuse in future projects (props-driven, no hardcoded pharmacy content); `MobileNav` now takes `links`/`ctaHref`/`ctaLabel`/`phone` props instead of hardcoded copy.
+- Reduced desktop hero's vertical padding (`lg:py-24` → `lg:py-14`) to remove excess space above the fold.
+- Added mobile-only extra bottom padding to the footer (`pb-16` vs `pb-8` on desktop) so the last row no longer hides behind the phone's on-screen nav bar.
+- Made body text unselectable site-wide by default; address/phone/email in the footer and contact page stay selectable/copyable via a `.selectable` class.
+
 ## 0.10.2 — 2026-08-22
 - Fixed mobile menu popup width: was spanning the full viewport, now a compact 256px card anchored under the trigger.
 - Fixed the backdrop only dimming/blurring below the header instead of the whole page, and background elements (like the header logo) remaining clickable through it: the header's `backdrop-blur` was creating a CSS containing block that trapped the `fixed` backdrop/panel to the header's own box. Portalled both to `document.body` to escape it — backdrop now covers the full viewport, intercepts every tap (closing the menu instead of also activating whatever's underneath), and background scroll stays locked while open.

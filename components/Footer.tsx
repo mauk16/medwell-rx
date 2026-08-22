@@ -39,7 +39,9 @@ const contact = [
 export default function Footer() {
   return (
     <footer className="hero-gradient mt-4 rounded-t-[2rem] text-white sm:rounded-t-[3rem]">
-      <div className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-8 pt-12 sm:pt-16">
+      {/* Extra pb-16 on mobile only: clears the phone's on-screen nav bar / gesture
+          area, which otherwise sits on top of the bottom bar's text. */}
+      <div className="relative mx-auto max-w-6xl overflow-hidden px-6 pb-16 pt-12 sm:pb-8 sm:pt-16">
         <Image
           src="/images/med-6.webp"
           alt=""
@@ -137,7 +139,7 @@ export default function Footer() {
               {contact.map((c) => (
                 <li key={c.text} className="flex items-start gap-2.5">
                   <c.icon size={15} className="mt-0.5 shrink-0 text-white/50" />
-                  <span className="break-words">{c.text}</span>
+                  <span className="selectable break-words">{c.text}</span>
                 </li>
               ))}
               <li className="text-xs text-white/50">Mon–Sat, 8am–9pm · Closed Sunday</li>

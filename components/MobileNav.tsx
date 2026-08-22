@@ -4,16 +4,24 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/products", label: "Shop" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+export type MobileNavLink = { href: string; label: string };
 
-export default function MobileNav() {
+export default function MobileNav({
+  links,
+  ctaHref = "/products",
+  ctaLabel = "Shop now",
+  phone,
+  panelLabel = "Menu",
+}: {
+  links: MobileNavLink[];
+  ctaHref?: string;
+  ctaLabel?: string;
+  /** Optional tel: number shown as a second button, e.g. "+15550123456" */
+  phone?: string;
+  panelLabel?: string;
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -47,8 +55,11 @@ export default function MobileNav() {
       </button>
 
       {/* Portalled to <body> — rendering these inside <header> traps position:fixed
-          children to the header's own box, because the header's backdrop-blur
-          establishes a containing block. A portal sidesteps that entirely. */}
+          children to the header's own box whenever the header uses backdrop-blur
+          (it establishes a CSS containing block). A portal sidesteps that entirely.
+          Symptom if you skip this: only the header area dims/blurs, not the whole
+          page, and elements under the header (e.g. the logo) stay clickable
+          through the "backdrop". */}
       {typeof document !== "undefined" &&
         createPortal(
           <>
@@ -70,7 +81,7 @@ export default function MobileNav() {
               }`}
             >
               <div className="flex items-center justify-between border-b border-border px-4 py-3">
-                <span className="text-sm font-semibold text-muted">Menu</span>
+                <span className="text-sm font-semibold text-muted">{panelLabel}</span>
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
@@ -101,18 +112,20 @@ export default function MobileNav() {
 
               <div className="space-y-2 border-t border-border p-2.5">
                 <Link
-                  href="/products"
+                  href={ctaHref}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
                 >
-                  Shop products <ArrowRight size={14} />
+                  {ctaLabel} <ArrowRight size={14} />
                 </Link>
-                <a
-                  href="tel:+15550123456"
-                  className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  <Phone size={14} /> (555) 012-3456
-                </a>
+                {phone && (
+                  <a
+                    href={`tel:${phone}`}
+                    className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Phone size={14} /> {phone}
+                  </a>
+                )}
               </div>
             </div>
           </>,

@@ -1,4 +1,4 @@
-# STATE — v0.10.2
+# STATE — v0.11.0
 
 Demo pharmacy storefront. Static/dummy data only, no backend, no real transactions.
 
@@ -14,6 +14,16 @@ Dark emerald gradient hero on every page (`.hero-gradient` in `globals.css`), ro
 bordered cards, scroll-snap swipe rows on mobile that become grids at `sm:`/`lg:`, and a sticky
 mobile action bar on the homepage and product detail. Shared via `components/PageHero.tsx` and
 `components/ProductCard.tsx`; per-category illustrations come from `categoryArt` in `data/products.ts`.
+Body text is unselectable by default (`user-select: none` on `body`); wrap anything that should
+stay copyable (address, phone, email) in the `.selectable` class.
+
+Mobile nav is a popup dropdown card (`components/MobileNav.tsx`), portalled to `document.body`
+to escape the header's `backdrop-blur` containing-block trap — see the component's own comment
+before touching the portal.
+
+`MobileNav`, `PageHero`, and a generalized `ProductCard` are also mirrored (props-driven, no
+pharmacy-specific content) in `Desktop/Claude/common-utilities/navigation` and `.../ecommerce`
+for reuse in future projects — keep both copies in sync if the pattern changes here.
 
 ## Pages
 - `/` — homepage: hero + working search, layered floating cards (desktop), category/product/review

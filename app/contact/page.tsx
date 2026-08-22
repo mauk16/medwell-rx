@@ -34,7 +34,7 @@ export default function ContactPage() {
                 </span>
                 <div className="min-w-0">
                   <p className="text-xs font-semibold text-muted">{d.label}</p>
-                  <p className="mt-0.5 break-words font-medium text-foreground">{d.value}</p>
+                  <p className="selectable mt-0.5 break-words font-medium text-foreground">{d.value}</p>
                 </div>
               </div>
             ))}

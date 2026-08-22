@@ -47,7 +47,7 @@ export default function Home() {
           className="pointer-events-none absolute -right-16 -top-16 w-72 opacity-[0.07] sm:w-96"
         />
 
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-8 lg:py-24">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-8 lg:py-14">
           <div className="min-w-0">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium ring-1 ring-white/20 backdrop-blur">
               <span className="relative flex h-2 w-2">

@@ -34,7 +34,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        <MobileNav />
+        <MobileNav links={links} ctaHref="/products" ctaLabel="Shop products" phone="+15550123456" />
       </div>
     </header>
   );
