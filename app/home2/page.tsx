@@ -26,7 +26,7 @@ export default function Home2() {
     <div>
       {/* Hero — asymmetric two-column, one composed visual instead of scattered icons */}
       <section className="border-b border-border bg-accent/40">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-10 lg:grid-cols-2 lg:py-14">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-primary">
               <Sparkles size={14} /> New look, same trusted care

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.2 — 2026-08-22
+- Reduced home2 hero's vertical padding to remove excess empty space below the header.
+
 ## 0.5.1 — 2026-08-22
 - Added a subtle floating animation (staggered, reduced-motion-safe) to the three white cards in the home2 hero; the gradient panel and logo mark stay fixed.
 
