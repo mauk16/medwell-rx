@@ -26,30 +26,30 @@ export default function Home2() {
     <div>
       {/* Hero — asymmetric two-column, one composed visual instead of scattered icons */}
       <section className="border-b border-border bg-accent/40">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-10 lg:grid-cols-2 lg:py-14">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-8 sm:gap-12 sm:py-10 lg:grid-cols-2 lg:py-14">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-primary">
               <Sparkles size={14} /> New look, same trusted care
             </span>
-            <h1 className="mt-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+            <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:mt-6 sm:text-5xl lg:text-6xl">
               Care that fits
               <br />
               <span className="text-primary">your everyday life.</span>
             </h1>
-            <p className="mt-5 max-w-md text-lg text-muted">
+            <p className="mt-3 max-w-md text-base text-muted sm:mt-5 sm:text-lg">
               Prescriptions, wellness essentials, and expert advice — all in one modern
               neighborhood pharmacy.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
               <Link
                 href="/products"
-                className="rounded-full bg-primary px-8 py-3 font-semibold text-white shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary-dark"
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary-dark sm:px-8 sm:py-3 sm:text-base"
               >
                 Shop Products
               </Link>
               <Link
                 href="/about"
-                className="rounded-full border border-border bg-background px-8 py-3 font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="rounded-full border border-border bg-background px-6 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-8 sm:py-3 sm:text-base"
               >
                 Learn More
               </Link>
@@ -98,12 +98,12 @@ export default function Home2() {
       </section>
 
       {/* Perks — bento style */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-4 sm:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-6 py-10 sm:py-16">
+        <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           {perks.map((p) => (
             <div
               key={p.title}
-              className="rounded-2xl border border-border bg-background p-6 transition-shadow hover:shadow-lg"
+              className="rounded-2xl border border-border bg-background p-5 transition-shadow hover:shadow-lg sm:p-6"
             >
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-primary">
                 <p.icon size={22} />
@@ -116,9 +116,9 @@ export default function Home2() {
       </section>
 
       {/* Categories */}
-      <section className="mx-auto max-w-6xl px-6 py-8">
-        <h2 className="text-2xl font-bold text-foreground">Shop by Category</h2>
-        <div className="mt-6 flex flex-wrap gap-3">
+      <section className="mx-auto max-w-6xl px-6 py-6 sm:py-8">
+        <h2 className="text-xl font-bold text-foreground sm:text-2xl">Shop by Category</h2>
+        <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
           {categories.map((c) => (
             <Link
               key={c}
@@ -132,14 +132,14 @@ export default function Home2() {
       </section>
 
       {/* Featured products — each card gets its own category icon as a quiet corner watermark */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-6 py-10 sm:py-16">
         <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-foreground">Featured Products</h2>
+          <h2 className="text-xl font-bold text-foreground sm:text-2xl">Featured Products</h2>
           <Link href="/products" className="text-sm font-semibold text-primary hover:underline">
             View all →
           </Link>
         </div>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {featured.map((p) => (
             <Link
               key={p.slug}
@@ -163,8 +163,8 @@ export default function Home2() {
       </section>
 
       {/* CTA banner — one large, subtle background icon instead of clutter */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="relative flex flex-col items-center gap-6 overflow-hidden rounded-3xl bg-primary px-8 py-14 text-center text-white sm:flex-row sm:text-left sm:justify-between">
+      <section className="mx-auto max-w-6xl px-6 pb-12 sm:pb-20">
+        <div className="relative flex flex-col items-center gap-5 overflow-hidden rounded-3xl bg-primary px-6 py-10 text-center text-white sm:flex-row sm:justify-between sm:gap-6 sm:px-8 sm:py-14 sm:text-left">
           <Image
             src="/images/med-3.webp"
             alt=""

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 — 2026-08-22
+- Fixed home2 mobile layout: smaller hero heading/copy/buttons, tighter section padding and gaps across hero, perks, categories, featured products, and CTA on small screens (desktop layout unchanged).
+
 ## 0.6.2 — 2026-08-22
 - Added brand favicon (`app/icon.svg`, green circle + cross), replacing the default Next.js favicon.ico.
 
