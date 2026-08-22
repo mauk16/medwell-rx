@@ -1,4 +1,4 @@
-# STATE — v0.1.0
+# STATE — v0.2.0
 
 Demo pharmacy storefront. Static/dummy data only, no backend, no real transactions.
 
@@ -10,7 +10,8 @@ Demo pharmacy storefront. Static/dummy data only, no backend, no real transactio
 Next.js (App Router, Turbopack) + Tailwind CSS v4 + Framer Motion + lucide-react. No database, no auth — all product data is a static array in `data/products.ts`.
 
 ## Pages
-- `/` — hero, perks, category links, featured products
+- `/` — original hero, perks, category links, featured products
+- `/home2` — redesigned homepage: gradient hero with floating medicine icons, bento perk cards, CTA banner
 - `/products` — full catalog, filterable by `?category=`
 - `/products/[slug]` — product detail (Rx items show "Requires Prescription", disabled button)
 - `/about`, `/contact` — static info + non-functional contact form
