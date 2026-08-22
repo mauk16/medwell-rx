@@ -9,59 +9,62 @@ const perks = [
   { icon: Clock, title: "Open Late", text: "Mon–Sat, 8am–9pm for walk-ins and pickup." },
 ];
 
-const floaters = [
-  { src: "/images/med-1.webp", className: "left-[4%] top-[12%] w-20 -rotate-6" },
-  { src: "/images/med-7.webp", className: "right-[6%] top-[8%] w-24 rotate-6" },
-  { src: "/images/med-4.webp", className: "left-[10%] bottom-[10%] w-24 rotate-3" },
-  { src: "/images/med-3.webp", className: "right-[10%] bottom-[14%] w-20 -rotate-3" },
-];
+// One icon per product category, used once each — no repeats, no clustering.
+const categoryIcon: Record<string, string> = {
+  "Pain Relief": "/images/med-1.webp",
+  "Cold & Flu": "/images/med-4.webp",
+  Vitamins: "/images/med-2.webp",
+  "Skin Care": "/images/med-2.webp",
+  "Baby & Child": "/images/med-4.webp",
+  Prescription: "/images/med-7.webp",
+};
 
 export default function Home2() {
   const featured = products.slice(0, 4);
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--accent),_var(--background)_65%)]">
-        <div className="pointer-events-none absolute inset-0 hidden sm:block">
-          {floaters.map((f) => (
-            <Image
-              key={f.src}
-              src={f.src}
-              alt=""
-              width={160}
-              height={160}
-              className={`absolute drop-shadow-lg ${f.className}`}
-            />
-          ))}
-        </div>
+      {/* Hero — asymmetric two-column, one composed visual instead of scattered icons */}
+      <section className="border-b border-border bg-accent/40">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:py-28">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-primary">
+              <Sparkles size={14} /> New look, same trusted care
+            </span>
+            <h1 className="mt-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+              Care that fits
+              <br />
+              <span className="text-primary">your everyday life.</span>
+            </h1>
+            <p className="mt-5 max-w-md text-lg text-muted">
+              Prescriptions, wellness essentials, and expert advice — all in one modern
+              neighborhood pharmacy.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link
+                href="/products"
+                className="rounded-full bg-primary px-8 py-3 font-semibold text-white shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary-dark"
+              >
+                Shop Products
+              </Link>
+              <Link
+                href="/about"
+                className="rounded-full border border-border bg-background px-8 py-3 font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
 
-        <div className="relative mx-auto max-w-3xl px-6 py-28 text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-primary">
-            <Sparkles size={14} /> New look, same trusted care
-          </span>
-          <h1 className="mt-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-            Care that fits
-            <br />
-            <span className="text-primary">your everyday life.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-lg text-lg text-muted">
-            Prescriptions, wellness essentials, and expert advice — all in one modern
-            neighborhood pharmacy.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/products"
-              className="rounded-full bg-primary px-8 py-3 font-semibold text-white shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary-dark"
-            >
-              Shop Products
-            </Link>
-            <Link
-              href="/about"
-              className="rounded-full border border-border bg-background px-8 py-3 font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
-            >
-              Learn More
-            </Link>
+          {/* Single composed visual: one focal card, one small accent card offset behind it */}
+          <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block">
+            <div className="absolute inset-8 rounded-[2.5rem] bg-primary/10" />
+            <div className="absolute right-0 top-6 w-40 rotate-6 rounded-3xl border border-border bg-background p-6 shadow-xl">
+              <Image src="/images/med-7.webp" alt="Prescription bottle" width={160} height={160} className="w-full" />
+            </div>
+            <div className="absolute bottom-6 left-0 w-32 -rotate-6 rounded-3xl border border-border bg-background p-5 shadow-xl">
+              <Image src="/images/med-2.webp" alt="Capsules" width={128} height={128} className="w-full" />
+            </div>
           </div>
         </div>
       </section>
@@ -100,7 +103,7 @@ export default function Home2() {
         </div>
       </section>
 
-      {/* Featured products */}
+      {/* Featured products — each card gets its own category icon as a quiet corner watermark */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex items-end justify-between">
           <h2 className="text-2xl font-bold text-foreground">Featured Products</h2>
@@ -113,21 +116,35 @@ export default function Home2() {
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
-              className="group rounded-2xl border border-border bg-background p-5 transition-all hover:-translate-y-1 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-background p-5 transition-all hover:-translate-y-1 hover:shadow-lg"
             >
-              <p className="text-xs font-medium text-primary">{p.category}</p>
-              <h3 className="mt-1 font-semibold text-foreground">{p.name}</h3>
-              <p className="mt-1 text-sm text-muted">{p.blurb}</p>
-              <p className="mt-3 font-bold text-foreground">${p.price.toFixed(2)}</p>
+              <Image
+                src={categoryIcon[p.category]}
+                alt=""
+                width={72}
+                height={72}
+                className="pointer-events-none absolute -right-3 -top-3 w-16 opacity-[0.08] transition-opacity group-hover:opacity-[0.14]"
+              />
+              <p className="relative text-xs font-medium text-primary">{p.category}</p>
+              <h3 className="relative mt-1 font-semibold text-foreground">{p.name}</h3>
+              <p className="relative mt-1 text-sm text-muted">{p.blurb}</p>
+              <p className="relative mt-3 font-bold text-foreground">${p.price.toFixed(2)}</p>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* CTA banner */}
+      {/* CTA banner — one large, subtle background icon instead of clutter */}
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="flex flex-col items-center gap-6 rounded-3xl bg-primary px-8 py-14 text-center text-white sm:flex-row sm:text-left sm:justify-between">
-          <div>
+        <div className="relative flex flex-col items-center gap-6 overflow-hidden rounded-3xl bg-primary px-8 py-14 text-center text-white sm:flex-row sm:text-left sm:justify-between">
+          <Image
+            src="/images/med-3.webp"
+            alt=""
+            width={220}
+            height={220}
+            className="pointer-events-none absolute -right-10 -top-10 w-56 opacity-10 invert"
+          />
+          <div className="relative">
             <div className="flex items-center gap-1 text-accent">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={16} fill="currentColor" />
@@ -138,7 +155,7 @@ export default function Home2() {
           </div>
           <Link
             href="/contact"
-            className="rounded-full bg-white px-8 py-3 font-semibold text-primary transition-transform hover:-translate-y-0.5"
+            className="relative rounded-full bg-white px-8 py-3 font-semibold text-primary transition-transform hover:-translate-y-0.5"
           >
             Get in Touch
           </Link>
