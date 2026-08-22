@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Cross, MapPin, Phone, Mail } from "lucide-react";
 import { categories } from "@/data/products";
+import pkg from "@/package.json";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -114,6 +116,22 @@ export default function Footer() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} MedWell Pharmacy. All rights reserved.</p>
           <p>Demo site — not a real pharmacy. No actual medications are sold here.</p>
+        </div>
+      </div>
+
+      <div className="border-t border-border bg-accent/60">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 py-4 text-center text-xs text-muted sm:flex-row sm:justify-between sm:text-left">
+          <a
+            href="https://www.fluxframers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 transition-colors hover:text-primary"
+          >
+            Developed by
+            <Image src="/fluxframers-logo.webp" alt="Fluxframers" width={16} height={11} />
+            Fluxframers
+          </a>
+          <span>v{pkg.version}</span>
         </div>
       </div>
     </footer>

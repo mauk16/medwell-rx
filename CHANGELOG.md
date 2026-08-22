@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.0 — 2026-08-22
+- Added Fluxframers credit bar to footer bottom (logo + link + live version number from package.json), matching the Artisan Emporium pattern.
+
 ## 0.5.2 — 2026-08-22
 - Reduced home2 hero's vertical padding to remove excess empty space below the header.
 
